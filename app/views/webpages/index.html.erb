@@ -1,0 +1,189 @@
+  <%= stylesheet_link_tag "base", :media => "all" %>
+  <%= stylesheet_link_tag "style", :media => "all" %>
+
+
+  <header id="kv">
+    <div id="kv__carousel" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag('kv1.jpg') %>
+        </div>
+        <% @kv_imgs.each do |img|%>
+        <div class="carousel-item">
+          <%= image_tag img.image.url %>
+        </div>
+        <% end %>
+      </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
+    <div class="right_menu_bar">
+
+      <div class="menu"> <span></span> </div>
+      <nav id="nav">
+      		<ul class="main">
+      				<li><a target="_blank" href="/">HOHME</a></li>
+      				<li><a target="_blank" href="/webpages/profile">PROFILE</a></li>
+      				<li><a href="/webpages/study">STUDY</a></li>
+      				<li><a href="/webpages/member">MEMBER</a></li>
+      				<li><a target="_blank" href="/webpages/contact">CONTACT</a></li>
+      		</ul>
+      </nav>
+      <div class="overlay"></div>
+      <div class="site_title">
+        SEO LABO
+      </div>
+      <img src="./images/signeture_2.gif" alt="" style="width:90px;height:90px;margin-top: 16vh;">
+    </div>
+    <div class="kv__text-box">
+      <h1 class="kv__title">あなたの夢が</h1>
+      <h1 class="kv__title slide">あなたを強くする</h1>
+      <span class="kv__sub-text">Catch your dream and have ambitious more!</span>
+    </div>
+  </header>
+
+  <section class="article">
+    <section id="greet">
+      <div class="greet__text-box">
+        <div class="greet__title">GREETTING</div>
+        <div class="greet__content">
+          ご訪問ありがとうございます。こちらは、瀬尾研究室です。<br>
+          当研究室では、細胞増殖因子による細胞内シグナル伝達の研究を行っています。 <br>
+          多数の生物工学科卒業生、大学院生を世の中に送り出しています。 <br>
+          研究室の卒業生は、大学、研究所や製薬企業 の研究者として、またさまざまな領域で活躍しています。 <br>
+          卒業生の活躍を見ることが何よりの喜びになっています。 <br>
+        </div>
+      </div>
+      <div class="greet__icon">
+        <%= image_tag('profile_seo.jpg') %>
+      </div>
+    </section>
+
+    <section id="profile">
+      <h2 class="profile__title">PROFILE</h2>
+      <div class="profile__inner">
+        <a href="webpages/profile">
+          <div class="profile__text-box">
+            <div class="profile__content_title">職歴</div>
+            <div class="profile__content">
+              1976.3　広島大学医学部薬学科　卒業（薬学士） <br>
+              1978.3　広島大学大学院薬学研究科修士課程薬学専攻　修了 <br>
+              1984.1　京都大学　薬学博士（論文博士、山科郁男教授）<br>
+              1978.4〜1984.1　広島大学医学部総合薬学科生理化学教室 技術補佐員<br>
+              1984.6〜1986.8　米国ハーバード大学医学部　マサチューセッツ総合病院研究員<br>
+              1986.9〜1988.8　米国ハーバード大学医学部　ボストン小児病院研究員<br>
+              1988.11〜1989.3　京都産業大学国土利用開発研究所 助教授<br>
+              1989.3〜2002.3　京都産業大学工学部生物工学科　助教授<br>
+              2002.4〜2010.3　京都産業大学工学部生物工学科　教授<br>
+              2005.3〜2006.2、2006.8　ハーバード大学医学部　ボストン小児病院　客員教授<br>
+              2010.4〜現在　京都産業大学総合生命科学部生命システム学科　教授<br>
+            </div>
+          </div>
+        </a>
+        <div class="right_thumbnail">
+          <%= image_tag('profile.png') %>
+        </div>
+      </div>
+    </section>
+
+    <section id="study">
+      <h2 class="study__title">STUDY</h2>
+      <div class="study__inner">
+        <a href="webpages/study">
+          <div class="study__text-box">
+            <div class="study__content_title">研究内容</div>
+            <div class="study__content">
+              細胞増殖因子による細胞内シグナル伝達の研究を行っています。
+              がん治療や再生治療につながる基礎研究を行い、治療の分子標的を探索し、 将来は人の命を救う薬を創りだすことが夢です。
+              多数の生物工学科卒業生、大学院生を世の中に送り出しています。
+              研究室の卒業生は、大学、研究所や製薬企業 の研究者として、またさまざまな領域で活躍しています。
+              卒業生の活躍を見ることが何よりの喜びになっています。
+            </div>
+          </div>
+        </a>
+        <div class="left_thumbnail">
+          <%= image_tag('study.jpg') %>
+        </div>
+      </div>
+    </section>
+
+    <section id="member">
+      <h2 class="profile__title">MEMBER</h2>
+      <div class="image-gallery animated">
+        <%@members.each do |member|%>
+        <div class="image-gallery__item">
+          <a class="d-inline-block" href="webpages/member">
+            <%= image_tag member.image.url, :width => "150", :height => "150", :alt => member.name %>
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </section>
+
+    <!-- <section id="member">
+
+    </section>
+
+    <section id="contact">
+      <div class="left_thumbnail">
+
+      </div> -->
+
+
+    </section>
+  </section>
+
+  <section class="houmon">
+    <a href="/webpages/contact">
+      <div class="houmon__box">
+        <%= image_tag('houmon.jpg') %>
+        <div class="houmon__box-text">
+          <span class="upper">challenge</span>
+          <div class="houmon__box-message">研究室を探している方へ</div>
+          <div class="houmon__box-more">＞＞MORE</div>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <section class="news">
+    <div class="news__title">
+      <span>-NEWS-</span><br>
+      お知らせ
+    </div>
+    <ul class="list-group">
+      <% @articles.each do |article| %>
+      <li class="list-group-item">
+        <%= link_to article.title, url: article.image.filename%>
+      </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <!-- まずjQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script>
+$('.menu, .overlay').click(function () {
+  $('.menu').toggleClass('clicked');
+
+  $('#nav').toggleClass('show');
+
+});
+</script>
+
+  <!-- Popper.js, 次に Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- 自作js -->
+  <%= javascript_include_tag 'main' %>
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>

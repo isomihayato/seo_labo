@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>瀬尾研究室</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Webフォント -->
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"crossorigin="anonymous">
+  <!-- 自作css -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/sub_style.css">
+
+
+</head>
+<body　data-spy="scroll" data-target="#navbar-example">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">SEO LABO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/webpages/profile">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/webpages/study">Result</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/webpages/member">Member</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/webpages/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="title_of_sub">
+  MEMBER
+  </div>
+
+  <section class="subpage">
+    <div class="text_box" style="width:100%;">
+      <div class="subtitle">研究室メンバー</div>
+      <div class="content" style="margin: 0% 5% 5%;">
+        <div class="image-gallery animated">
+          <% @now_members.each do |now_member| %>
+          <div class="image-gallery__item">
+            <a class="d-inline-block" href="<%= now_member.image.url%>">
+              <%= image_tag now_member.image.url, :width => "110px", :height => "110px"%>
+            </a>
+            <div class="member_name">
+              <%= now_member.name %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="text_box"  style="width:100%;">
+      <div class="subtitle">卒業生</div>
+      <div class="content">
+        <div class="image-gallery animated">
+          <% @old_members.each do |old_member| %>
+          <div class="image-gallery__item">
+            <a class="d-inline-block" href="<%= old_member.image.url%>">
+              <%= image_tag old_member.image.url, :width => "110px", :height => "110px"%>
+            </a>
+            <div class="member_name">
+              <%= old_member.name %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- まずjQuery -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+  <!-- Popper.js, 次に Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- 自作js -->
+  <script src="./js/main.js" charset="utf-8"></script>
+
+  <!-- Font Awesome -->
+  <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<%= provide(:title, "メンバー編集") %>
+
+<%= image_tag @member.image.url, :width => "110px", :height => "110px"%>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+
+    <%= form_with(url: member_update_path(id: @member.id), method: :put, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control', value: @member.name%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :age, '年齢' %>
+        <%= f.number_field :age, class: 'form-control', value: @member.age %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :grade, '学年' %>
+        <%= f.select :grade, options_for_select([['B3'],['B4'],['M1'],['M2'],['卒業生','graduate'],['教授','professor'],['助教授','associate_professor']],@member.grade),{},class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image, 'image' %>
+        <%= f.file_field :image, class: 'form-control',required: true %>
+      </div>
+
+      <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+    <% end %>
+
+  </div>
+</div>

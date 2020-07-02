@@ -1,0 +1,29 @@
+<%= provide(:title, "サイト編集") %>
+<style media="screen">
+  .inner{
+    width: 20vw;
+    margin-left: 13vw;
+    line-height: 3rem;
+    padding: 20px;
+  }
+</style>
+  <div class="row">
+    <div class="col">
+      <%= link_to 'サイト内画像', edit_img_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to '研究成果', edit_result_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+     <%= link_to 'NEWS記事', edit_news_path %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+     <%= link_to 'メンバー登録', edit_member_path %>
+    </div>
+  </div>

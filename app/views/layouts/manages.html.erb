@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SeoLabo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+
+  </head>
+  <style media="screen">
+    article.papar{
+      width:50vw;
+      min-height: 600px;
+      margin: 0 auto;
+      border: solid 1px #cacaca;
+     }
+    article.papar h4{
+      padding-left: 5vw;
+      padding-top: 4vh;
+     }
+    .inner{
+      width: auto;
+      margin-left: 0;
+      line-height: 3rem;
+      padding: 20px;
+    }
+  </style>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/flash_messages' %>
+    <article class="papar">
+      <h4><%= yield(:title) %></h4>
+      <div class="inner">
+    <%= yield %>
+      </div>
+    </article>
+  </body>
+</html>

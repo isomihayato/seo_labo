@@ -1,0 +1,107 @@
+<%= provide(:title, "サイト内画像") %>
+<style media="screen">
+  .inner{
+    width: auto;
+    margin-left: 0;
+    line-height: 3rem;
+    padding: 20px;
+  }
+  .img_box{
+    width: 100px;
+    float: left;
+    margin: 10px;
+  }
+  .edit_a {
+    padding-left: 10px;
+  }
+  .delete_a {
+    padding-left: 20px;
+    color: red;
+  }
+</style>
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          トップページ画像
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <%@kv_imgs.each do |kv|%>
+        <div class="img_box">
+          <div class="row">
+            <%= image_tag kv.image.url, :width => "110px", :height => "110px", data:{target: "#exampleModal", toggle: 'modal'}%>
+          </div>
+          <div class="row">
+            <%= link_to '編集', img_edit_path(id: kv.id), class: 'edit_a'%>
+            <%= link_to '削除', img_delete_path(id: kv.id), method: :delete, class: 'delete_a',data: { confirm: '本当に削除してよろしいですか？' }%>
+          </div>
+        </div>
+        <% end %>
+        <svg width="3em" style="margin-top:35px;" data-target="#addModal" data-toggle="modal" height="3em" viewBox="0 0 16 16" class="bi bi-file-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
+          <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+        </svg>
+
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          メンバー画像
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <%@member_imgs.each do |member|%>
+        <div class="img_box">
+          <div class="row">
+          <%= image_tag member.image.url, width: "110px", height: "110px"%>
+        </div>
+        <div class="row">
+          <%= link_to '編集', member_edit_path(id: member.id), class: 'edit_a'%>
+        </div>
+      </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">画像追加</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with(url: img_create_path, local: true) do |f|%>
+        <div class="row">
+            <div class="form-group">
+              <%= f.hidden_field :place, value: 'kv'%>
+              <%= f.label :image, '画像' %>
+              <%= f.file_field :image, class: 'form-control',required: true%>
+            </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

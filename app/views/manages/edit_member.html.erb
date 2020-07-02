@@ -1,0 +1,61 @@
+<%= provide(:title, "メンバー登録") %>
+
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3">
+
+
+    <%= form_with(url: member_create_path, method: :post, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control',required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :age, '年齢' %>
+        <%= f.number_field :age, class: 'form-control',required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :grade, '学年' %>
+        <%= f.select :grade, options_for_select([['B3'],['B4'],['M1'],['M2'],['卒業生','graduate'],['教授','professor'],['助教授','associate_professor']]),{},class: 'form-control',required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :image, 'image' %>
+        <%= f.file_field :image, class: 'form-control',accept: 'image/jpg,image/jpeg,image/png,image/gif',required: true %>
+      </div>
+
+      <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+    <% end %>
+
+  </div>
+</div>
+
+<table class="table table-striped mt-5">
+  <thead>
+    <tr>
+      <th>PDF</th>
+      <th style="padding:0;width:32vw;">名前</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member|%>
+    <tr>
+      <td>
+        <%= image_tag member.image.url, :width => "110px", :height => "110px"%>
+      </td>
+      <td>
+        <%= link_to member.name, member_edit_path(id: member.id)%>
+      </td>
+      <td>
+        <%= link_to(member_delete_path(id: member.id), method: :delete, data: { confirm: '本当に削除してよろしいですか？' }) do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

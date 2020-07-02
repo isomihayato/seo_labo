@@ -1,0 +1,24 @@
+body {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  font-family: "Droid Serif", YuGothic, "游ゴシック", sans-serif;
+}
+
+section {
+  display: inline-block;
+  margin: 10vh 0;
+  line-height: 2.5rem;
+}
+
+section.article {
+  margin-top: 0;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  width: 80vw;
+  float: right;
+}
+
+a {
+  text-decoration: none;
+}
