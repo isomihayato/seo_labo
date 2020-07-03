@@ -11,7 +11,7 @@ class WebpagesController < ApplicationController
   end
 
   def study
-
+    @results = Result.all
   end
   def member
     @now_members = Member.where.not(grade: 'graduate')
