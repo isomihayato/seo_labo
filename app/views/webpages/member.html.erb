@@ -53,12 +53,14 @@
     <div class="text_box" style="width:100%;">
       <div class="subtitle">研究室メンバー</div>
       <div class="content" style="margin: 0% 5% 5%;">
-        <div class="image-gallery animated">
+        <div class="image-gallery animated" style="width:auto;">
           <% @now_members.each do |now_member| %>
-          <div class="image-gallery__item">
-            <a class="d-inline-block" href="<%= now_member.image.url%>">
-              <%= image_tag now_member.image.url, :width => "110px", :height => "110px"%>
-            </a>
+          <div style="text-align:center;">
+            <div class="image-gallery__item">
+              <a class="d-inline-block" href="<%= now_member.image.url%>">
+                <%= image_tag now_member.image.url, :width => "150px", :height => "150px"%>
+              </a>
+            </div>
             <div class="member_name">
               <%= now_member.name %>
             </div>
@@ -70,11 +72,11 @@
     <div class="text_box"  style="width:100%;">
       <div class="subtitle">卒業生</div>
       <div class="content">
-        <div class="image-gallery animated">
+        <div class="image-gallery animated"style="width:auto;">
           <% @old_members.each do |old_member| %>
           <div class="image-gallery__item">
             <a class="d-inline-block" href="<%= old_member.image.url%>">
-              <%= image_tag old_member.image.url, :width => "110px", :height => "110px"%>
+              <%= image_tag old_member.image.url, :width => "150px", :height => "150px"%>
             </a>
             <div class="member_name">
               <%= old_member.name %>

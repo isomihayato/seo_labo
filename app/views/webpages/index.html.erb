@@ -1,8 +1,7 @@
   <%= stylesheet_link_tag "base", :media => "all" %>
   <%= stylesheet_link_tag "style", :media => "all" %>
-
-
-  <header id="kv">
+  <%= stylesheet_link_tag "sp", :media => "all" %>
+  <header id="kv"class="sp_display-none">
     <div id="kv__carousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -49,6 +48,32 @@
   </header>
 
   <section class="article">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">SEO LABO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/webpages/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/webpages/study">Result</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/webpages/member">Member</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/webpages/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <section id="greet">
       <div class="greet__text-box">
         <div class="greet__title">GREETTING</div>
@@ -60,9 +85,42 @@
           卒業生の活躍を見ることが何よりの喜びになっています。 <br>
         </div>
       </div>
-      <div class="greet__icon">
+      <div class="greet__icon sp_display-none">
         <%= image_tag('profile_seo.jpg') %>
       </div>
+    </section>
+
+    <div class="news__title">
+      <span>-NEWS-</span><br>
+      お知らせ
+    </div>
+    <section class="news">
+
+        <% @articles.each do |article| %>
+        <div class="news__outerbox">
+        <%= image_tag article.image.url, width: 100,height: 100%>
+        <div class="news__text">
+          <div class="news__text-date"><%= article.created_at.strftime('%Y.%m.%d')%></div>
+          <a href="<%= article.image.url%>"><%= article.title %></a>
+        </div>
+      </div>
+        <% end %>
+    </section>
+    <div class="news__title">
+      <span>-Challenge!-</span><br>
+      研究室訪問について
+    </div>
+    <section class="houmon">
+      <a href="/webpages/contact">
+        <div class="houmon__box">
+          <%= image_tag('houmon.jpg') %>
+          <div class="houmon__box-text sp_display-none">
+            <span class="upper">challenge</span>
+            <div class="houmon__box-message">訪問お問い合わせページへ</div>
+            <div class="houmon__box-more">＞＞MORE</div>
+          </div>
+        </div>
+      </a>
     </section>
 
     <section id="profile">
@@ -107,24 +165,12 @@
             </div>
           </div>
         </a>
-        <div class="left_thumbnail">
+        <div class="left_thumbnail sp_display-none">
           <%= image_tag('study.jpg') %>
         </div>
       </div>
     </section>
 
-    <section id="member">
-      <h2 class="profile__title">MEMBER</h2>
-      <div class="image-gallery animated">
-        <%@members.each do |member|%>
-        <div class="image-gallery__item">
-          <a class="d-inline-block" href="webpages/member">
-            <%= image_tag member.image.url, :width => "150", :height => "150", :alt => member.name %>
-          </a>
-        </div>
-        <% end %>
-      </div>
-    </section>
 
     <!-- <section id="member">
 
@@ -137,34 +183,21 @@
 
 
     </section>
-  </section>
-
-  <section class="houmon">
-    <a href="/webpages/contact">
-      <div class="houmon__box">
-        <%= image_tag('houmon.jpg') %>
-        <div class="houmon__box-text">
-          <span class="upper">challenge</span>
-          <div class="houmon__box-message">研究室を探している方へ</div>
-          <div class="houmon__box-more">＞＞MORE</div>
+    <section id="member">
+      <h2 class="member__title">MEMBER</h2>
+      <div class="image-gallery animated">
+        <%@members.each do |member|%>
+        <div class="image-gallery__item mt-5">
+          <a class="d-inline-block" href="webpages/member">
+            <%= image_tag member.image.url, :width => "150", :height => "150", :alt => member.name %>
+          </a>
         </div>
+        <% end %>
       </div>
-    </a>
+    </section>
   </section>
 
-  <section class="news">
-    <div class="news__title">
-      <span>-NEWS-</span><br>
-      お知らせ
-    </div>
-    <ul class="list-group">
-      <% @articles.each do |article| %>
-      <li class="list-group-item">
-        <%= link_to article.title, url: article.image.filename%>
-      </li>
-      <% end %>
-    </ul>
-  </section>
+
 
   <!-- まずjQuery -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -1,3 +1,21 @@
+<style media="screen">
+  input[type="date"]{
+      position: relative;
+  }
+  input[type="date"]::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+  }
+
+  input[type="date"]::-webkit-clear-button{
+      -webkit-appearance: none;
+  }
+  input[type=date]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+  }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">SEO LABO</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,24 +43,52 @@
   </div>
 </nav>
 
-<div class="row" style="min-height: 84vh;">
-  <div class="col-sm-6 offset-sm-3">
-    <%= form_with(url: webpages_contact_path, local: true) do |f| %>
-    <div class="form-group">
-      <%= f.label :name, '氏名' %>
-      <%= f.text_field :name,class: 'form-control',required: true%>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :email, 'メールアドレス' %>
-      <%= f.email_field :email, class: 'form-control',required: true%>
-    </div>
-    <div class="form-group">
-      <%= f.label :requirement, 'ご用件' %>
-      <%= f.text_area :requirement, class: 'form-control',required: true%>
-    </div>
-
-    <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
-  <% end %>
-  </div>
+<div class="title_of_sub">
+CONTACT
 </div>
+
+<section class="subpage">
+  <div class="text_box">
+    <div class="subtitle">研究室訪問</div>
+    <div class="content">
+      こちらは、瀬尾研への訪問アポ取得ページです！
+    </div>
+  </div>
+  <div class="row" style="min-height: 84vh;">
+    <div class="col-sm-6 offset-sm-3">
+      <%= form_with(url: webpages_contact_path, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :name, '氏名' %>
+        <%= f.text_field :name,class: 'form-control',required: true%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class: 'form-control',required: true%>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :requirement, 'ご用件' %>
+        <%= f.select :requirement, options_for_select([['訪問','visit'],['質問','ask'],['その他','other']]),{},class: 'form-control mx-sm',required: true%>
+      </div>
+
+      <div class="form-group">
+        <h5 class="mt-5"style="border-bottom:solid 1px #000;padding-bottom:5px;width:fit-content;">訪問希望日</h5>
+        <%= f.label :appointment1, '第一希望日' %>
+        <%= f.datetime_field :appointment1, class: 'form-control',required:true%>
+        <%= f.label :appointment2, '第2希望日' %>
+        <%= f.datetime_field :appointment2, class: 'form-control',required:true%>
+
+      </div>
+
+      <div class="form-group">
+        <%= f.label :remark, '備考' %>
+        <%= f.text_area :remark,class: 'form-control',rows:6,placeholder:'例）（質問の場合)
+        〇〇の講義でお世話になっております。△△の××について質問があります。'%>
+      </div>
+
+      <%= f.submit '送信', class: 'btn btn-primary btn-block mb-5' %>
+    <% end %>
+    </div>
+  </div>
+</section>

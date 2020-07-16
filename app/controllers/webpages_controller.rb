@@ -20,4 +20,15 @@ class WebpagesController < ApplicationController
   def contact
 
   end
+
+  def contact_create
+    contact = Contact.new(contact_params)
+    ContactMailer.send_mail(contact).deliver_now
+  end
+
+  private
+
+  def contact_params
+    params.permit(:name,:email,:requirement,:appointment1,:appointment2,:remark)
+  end
 end

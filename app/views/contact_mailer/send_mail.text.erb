@@ -1,0 +1,14 @@
+<%= @contact.name %>(<%= @contact.email %>) さん から問い合わせがありました。
+
+
+お問い合わせ内容
+【要件】
+<%= @contact.requirement %>
+
+【訪問日時】
+第一希望日：<%= @contact.appointment1.strftime('%Y年%m月%d日%H時%m分')%>~
+第二希望日：<%= @contact.appointment2.strftime('%Y年%m月%d日%H時%m分')%>~
+
+
+【備考】
+<%= @contact.remark %>
