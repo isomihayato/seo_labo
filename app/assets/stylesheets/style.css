@@ -7,6 +7,9 @@ a {
 }
 @media screen and (min-width:1400px) {
     /*　画面サイズが1024pxからはここを読み込む　*/
+.pc_display-none {
+  display: none;
+}
 #navbar {
   float: right;
   font-size: 40px;
