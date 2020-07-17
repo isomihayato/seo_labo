@@ -2,6 +2,7 @@
 lock "~> 3.11.2"
 
 # デプロイするアプリケーションの名前と参照するGithubの設定
+server '153.127.22.87', port: 22, roles: [:app, :web, :db], primary: true
 set :application, "seo_labo"
 set :repo_url, "git@github.com: 'https://github.com/ice-crypto/seo_labo.git'"　　　　　　
 

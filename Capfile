@@ -1,4 +1,3 @@
-Capfile
 # 各Gemfileのrequire
 require "capistrano/setup"
 require "capistrano/deploy"
