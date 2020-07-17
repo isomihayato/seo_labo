@@ -1,0 +1,15 @@
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+/Users/ishidatomoonari/.rvm/rubies/ruby-2.6.5/bin/ruby -I /Users/ishidatomoonari/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200717-3593-njjir4.rb extconf.rb
+creating Makefile
+
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.6/ext/bootsnap
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20200717-3593-6l50cw/bootsnap

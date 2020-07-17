@@ -1,0 +1,15 @@
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/ishidatomoonari/.rvm/rubies/ruby-2.6.5/bin/ruby -I /Users/ishidatomoonari/.rvm/rubies/ruby-2.6.5/lib/ruby/site_ruby/2.6.0 -r ./siteconf20200717-3593-1giuryk.rb extconf.rb
+creating Makefile
+
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Applications/MAMP/htdocs/seo_labo/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20200717-3593-19dgip8/skiptrace/internal
