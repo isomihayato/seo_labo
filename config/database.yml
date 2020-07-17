@@ -48,9 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8mb4
   pool: 5
   database: seo_labo_production
   username: seo_labo
-  password: <%= ENV['SEO_LABO_DATABASE_PASSWORD'] %>
+  password: DYGDsRjifV0Y4r6c
