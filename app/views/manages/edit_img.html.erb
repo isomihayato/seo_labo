@@ -1,4 +1,3 @@
-<%= provide(:title, "サイト内画像") %>
 <style media="screen">
   .inner{
     width: auto;
@@ -31,16 +30,18 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <%@kv_imgs.each do |kv|%>
-        <div class="img_box">
-          <div class="row">
-            <%= image_tag kv.image.url, :width => "110px", :height => "110px", data:{target: "#exampleModal", toggle: 'modal'}%>
+        <%unless @kv_imgs.nil?%>
+          <%@kv_imgs.each do |kv|%>
+          <div class="img_box">
+            <div class="row">
+              <%= image_tag kv.image.url, :width => "110px", :height => "110px", data:{target: "#exampleModal", toggle: 'modal'}%>
+            </div>
+            <div class="row">
+              <%= link_to '編集', img_edit_path(id: kv.id), class: 'edit_a'%>
+              <%= link_to '削除', img_delete_path(id: kv.id), method: :delete, class: 'delete_a',data: { confirm: '本当に削除してよろしいですか？' }%>
+            </div>
           </div>
-          <div class="row">
-            <%= link_to '編集', img_edit_path(id: kv.id), class: 'edit_a'%>
-            <%= link_to '削除', img_delete_path(id: kv.id), method: :delete, class: 'delete_a',data: { confirm: '本当に削除してよろしいですか？' }%>
-          </div>
-        </div>
+          <% end %>
         <% end %>
         <svg width="3em" style="margin-top:35px;" data-target="#addModal" data-toggle="modal" height="3em" viewBox="0 0 16 16" class="bi bi-file-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
@@ -60,16 +61,18 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        <%@member_imgs.each do |member|%>
-        <div class="img_box">
+        <%unless @member_imgs.nil?%>
+          <%@member_imgs.each do |member|%>
+          <div class="img_box">
+            <div class="row">
+            <%= image_tag member.image.url, width: "110px", height: "110px"%>
+          </div>
           <div class="row">
-          <%= image_tag member.image.url, width: "110px", height: "110px"%>
+            <%= link_to '編集', member_edit_path(id: member.id), class: 'edit_a'%>
+          </div>
         </div>
-        <div class="row">
-          <%= link_to '編集', member_edit_path(id: member.id), class: 'edit_a'%>
-        </div>
-      </div>
-        <% end %>
+          <% end %>
+        <%end%>
       </div>
     </div>
   </div>
@@ -105,3 +108,4 @@
     </div>
   </div>
 </div>
+

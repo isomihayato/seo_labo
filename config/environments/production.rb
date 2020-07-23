@@ -100,6 +100,8 @@ Rails.application.configure do
     authentication:       'login',
     enable_starttls_auto: true
   }
+  config.assets.debug = false
+  config.public_file_server.enabled = true
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector

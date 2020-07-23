@@ -71,4 +71,5 @@ Rails.application.configure do
     authentication:       'login',
     enable_starttls_auto: true
   }
+  config.hosts << "ik1-409-36583.vs.sakura.ne.jp"
 end
