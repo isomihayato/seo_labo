@@ -1,14 +1,14 @@
-# 各Gemfileのrequire
 require "capistrano/setup"
 require "capistrano/deploy"
-require 'capistrano/rbenv'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-
-# SCM（Source Code Management）の読み込み（Gitを使う前提）
+require "capistrano/rbenv"
+require "capistrano/bundler"
+require "capistrano/rails/assets"
+require "capistrano/rails/migrations"
 require "capistrano/scm/git"
+require 'capistrano/rails/console'
+
 install_plugin Capistrano::SCM::Git
 
-# カスタムタスクの読み込み
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
+# taskを記述したファイルを読み込む用に設定。
+# なおデフォルトでは *.rakeとなっているのでもとの記述をそのまま使う場合は注意!！
+Dir.glob("lib/capistrano/tasks/*.rb").each { |r| import r }

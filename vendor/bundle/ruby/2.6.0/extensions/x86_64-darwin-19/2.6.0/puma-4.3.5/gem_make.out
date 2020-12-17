@@ -1,0 +1,56 @@
+current directory: /Users/tomy/Documents/private/rails/seo_labo/vendor/bundle/ruby/2.6.0/gems/puma-4.3.5/ext/puma_http11
+/Users/tomy/.rbenv/versions/2.6.5/bin/ruby -I /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0 -r ./siteconf20201218-64222-fser9p.rb extconf.rb --with-cppflags\=-I/usr/local/opt/openssl@1.1/include\ --with-ldflags\=-L/usr/local/opt/openssl@1.1/lib
+checking for BIO_read() in -lcrypto... *** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/tomy/.rbenv/versions/2.6.5/bin/$(RUBY_BASE_NAME)
+	--with-puma_http11-dir
+	--without-puma_http11-dir
+	--with-puma_http11-include
+	--without-puma_http11-include=${puma_http11-dir}/include
+	--with-puma_http11-lib
+	--without-puma_http11-lib=${puma_http11-dir}/lib
+	--with-openssl-dir
+	--with-openssl-include
+	--without-openssl-include=${openssl-dir}/include
+	--with-openssl-lib
+	--without-openssl-lib=${openssl-dir}/lib
+	--with-cryptolib
+	--without-cryptolib
+/Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:467:in `try_do': The compiler failed to generate an executable file. (RuntimeError)
+You have to install development tools first.
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:552:in `try_link0'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:570:in `try_link'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:782:in `try_func'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:1016:in `block in have_library'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:959:in `block in checking_for'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:361:in `block (2 levels) in postpone'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:331:in `open'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:361:in `block in postpone'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:331:in `open'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:357:in `postpone'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:958:in `checking_for'
+	from /Users/tomy/.rbenv/versions/2.6.5/lib/ruby/2.6.0/mkmf.rb:1011:in `have_library'
+	from extconf.rb:13:in `block in <main>'
+	from extconf.rb:13:in `each'
+	from extconf.rb:13:in `find'
+	from extconf.rb:13:in `<main>'
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/tomy/Documents/private/rails/seo_labo/vendor/bundle/ruby/2.6.0/extensions/x86_64-darwin-19/2.6.0/puma-4.3.5/mkmf.log
+
+extconf failed, exit code 1

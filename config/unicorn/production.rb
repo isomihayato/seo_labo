@@ -1,18 +1,13 @@
-#workerプロセスの数
+#ワーカーの数
   $worker  = 2
-
 #何秒経過すればワーカーを削除するのかを決める
   $timeout = 30
-
 #自分のアプリケーション名、currentがつくことに注意。
-  $app_dir = "/var/www/app/seo_labo/current"
-
+  $app_dir = "/var/www/seo_labo/current"
 #リクエストを受け取るポート番号を指定。後述
   $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
-
 #PIDの管理ファイルディレクトリ
   $pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
-
 #エラーログを吐き出すファイルのディレクトリ
   $std_log = File.expand_path 'log/unicorn.log', $app_dir
 
@@ -28,7 +23,7 @@
 #ホットデプロイをするかしないかを設定
   preload_app true
 
-#fork前に行うことを定義。後述
+#fork前に行うことを定義
   before_fork do |server, worker|
     defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
     old_pid = "#{server.config[:pid]}.oldbin"
@@ -40,12 +35,10 @@
     end
   end
 
-#fork後に行うことを定義。後述
+#fork後に行うことを定義
   after_fork do |server, worker|
     defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
   end
-
-#Bundler::GemfileNotFound from unicornerror
   before_exec do |server|
-  ENV["BUNDLE_GEMFILE"] = File.join(File.expand_path("../../../../../", __FILE__), "current", "Gemfile")
-end
+    ENV["BUNDLE_GEMFILE"] = "/var/www/seo_labo/current/Gemfile"
+  end
