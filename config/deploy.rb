@@ -21,8 +21,6 @@ set :deploy_to, '/var/www/seo_labo/'
 # シンボリックリンクをはるファイル
 set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
-set :linked_files, fetch(:linked_files, []).push('config/master.key')
-
 # シンボリックリンクをはるフォルダ
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
@@ -63,7 +61,7 @@ namespace :deploy do
                   sql = "CREATE DATABASE IF NOT EXISTS seo_labo_production;"
                   # クエリの実行。
                 # userとpasswordはmysqlの設定に合わせて
-                execute "mysql --user=root --password=DL3h2P#(wp -e '#{sql}'"
+                execute "mysql --user=root --password=ofQt-7gUasJX -e '#{sql}'"
 
         end
       end

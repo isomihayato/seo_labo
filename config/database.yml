@@ -53,6 +53,6 @@ production:
   pool: 5
   database: seo_labo_production
   username: root
-  password: dl3h2pwp
+  password: ofQt-7gUasJX
   host: localhost
   socket: /var/lib/mysql/mysql.sock
