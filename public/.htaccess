@@ -1,0 +1,3 @@
+<IfModule mod_rewrite.c>
+    Redirect permanent https://seo-labo.jp:3000 https://seo-labo.jp
+</IfModule>
